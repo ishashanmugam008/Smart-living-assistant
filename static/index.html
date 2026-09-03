@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07100e"><title>AURA Assist — Accessible Smart Living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL@24,400,0" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="ambient one"></div><div class="ambient two"></div>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brandmark"><i></i><i></i><i></i></span><span>AURA<small>ASSIST</small></span></a>
+    <nav>
+      <button class="nav active" data-view="home"><span class="material-symbols-rounded">space_dashboard</span><b>Overview</b></button>
+      <button class="nav" data-view="plan"><span class="material-symbols-rounded">checklist</span><b>My day</b><em id="taskBadge">0</em></button>
+      <button class="nav" data-view="home"><span class="material-symbols-rounded">devices</span><b>Spaces</b></button>
+      <button class="nav" data-view="home"><span class="material-symbols-rounded">auto_awesome</span><b>Routines</b></button>
+    </nav>
+    <div class="side-card"><span class="material-symbols-rounded">volunteer_activism</span><p><b>Accessibility first</b><br>Voice, keyboard and high-contrast ready.</p></div>
+    <button class="profile"><span class="avatar">SK</span><span><b>Demo Resident</b><small>Home · Connected</small></span><span class="material-symbols-rounded">more_horiz</span></button>
+  </aside>
+
+  <main>
+    <header><button id="menu" class="icon-btn mobile"><span class="material-symbols-rounded">menu</span></button><div><p id="dateLabel"></p><h1>Good <span id="dayPart">morning</span>, Hasini.</h1></div><div class="head-actions"><span class="status"><i></i>All systems online</span><button class="icon-btn" title="Notifications"><span class="material-symbols-rounded">notifications</span><b>2</b></button><button id="contrast" class="icon-btn" title="Toggle high contrast"><span class="material-symbols-rounded">contrast</span></button></div></header>
+
+    <section class="command-hero">
+      <div><span class="eyebrow"><i></i>AURA VOICE</span><h2>What can I help<br>you with?</h2><p>Manage your home and day using natural language.</p></div>
+      <div class="orb-wrap"><div class="rings"></div><button id="mic" class="orb" aria-label="Start voice command"><span class="material-symbols-rounded">mic</span></button><small id="micLabel">Tap to speak</small></div>
+      <form id="commandForm" class="command"><span class="material-symbols-rounded">auto_awesome</span><input id="commandInput" placeholder="Try “Turn on the lights” or “Buy milk tomorrow”" autocomplete="off"><button aria-label="Send"><span class="material-symbols-rounded">arrow_upward</span></button></form>
+      <div class="suggestions"><button data-command="Turn on the lights"><span class="material-symbols-rounded">lightbulb</span>Lights on</button><button data-command="Add milk to groceries tomorrow"><span class="material-symbols-rounded">shopping_basket</span>Add groceries</button><button data-command="Lock the main door"><span class="material-symbols-rounded">lock</span>Secure home</button></div>
+    </section>
+
+    <section class="section-head"><div><p class="eyebrow">YOUR HOME</p><h2>Spaces & devices</h2></div><button id="resetDemo" class="text-btn"><span class="material-symbols-rounded">restart_alt</span>Reset demo</button></section>
+    <section id="devices" class="device-grid"></section>
+
+    <section class="lower-grid">
+      <article class="panel plan-panel"><div class="panel-head"><div><p class="eyebrow">TODAY</p><h2>Your day</h2></div><button id="addOpen" class="add"><span class="material-symbols-rounded">add</span>Add item</button></div><div class="tabs"><button class="active" data-filter="all">All <span id="allCount">0</span></button><button data-filter="task">Tasks</button><button data-filter="grocery">Groceries</button></div><div id="items" class="items"></div></article>
+      <aside class="insights"><article class="panel environment"><div class="panel-head"><div><p class="eyebrow">ENVIRONMENT</p><h2>Home comfort</h2></div><span class="live">Live</span></div><div class="temp"><strong>24<span>.1°</span></strong><p>Comfortable<br><small>Feels just right</small></p></div><div class="metrics"><span><i class="material-symbols-rounded">humidity_percentage</i><b>48%</b><small>Humidity</small></span><span><i class="material-symbols-rounded">air</i><b>Good</b><small>Air quality</small></span><span><i class="material-symbols-rounded">bolt</i><b>1.8 kW</b><small>Energy</small></span></div></article><article class="safety"><span class="material-symbols-rounded">health_and_safety</span><div><p class="eyebrow">QUICK ASSIST</p><h3>Need immediate help?</h3><p>Activates a safe demo alert—no real messages are sent.</p></div><button id="sos">Hold for SOS</button></article></aside>
+    </section>
+  </main>
+
+  <dialog id="addDialog"><form id="addForm"><div class="modal-head"><div><p class="eyebrow">NEW ITEM</p><h2>Add to your day</h2></div><button type="button" class="icon-btn close"><span class="material-symbols-rounded">close</span></button></div><label>What do you need?<input name="title" required maxlength="160" placeholder="e.g. Pick up medicine"></label><div class="form-row"><label>Category<select name="category"><option value="task">Task</option><option value="grocery">Grocery</option></select></label><label>Priority<select name="priority"><option>medium</option><option>high</option><option>low</option></select></label></div><label>Due date<input name="due" type="date"></label><button class="primary">Add item <span class="material-symbols-rounded">arrow_forward</span></button></form></dialog>
+  <div id="toast" role="status"><span class="material-symbols-rounded">check_circle</span><p></p></div>
+  <script src="/static/app.js"></script>
+</body></html>
+
